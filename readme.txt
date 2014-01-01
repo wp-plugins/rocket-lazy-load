@@ -13,6 +13,8 @@ Lazy Load displays images on a page only when they are visible to the user. This
 
 This plugin works on thumbnails, all images in a post content or in a widget text, avatars and smilies. No JavaScript library such as jQuery is used and the script weighs less than 2kb.
 
+Simply install the plugin to enjoy a faster website. No options are available : you install it and the plugin takes care of everything.
+
 This script is used by WP Rocket plugin cache : http://wp-rocket.me
 
 == Installation ==
