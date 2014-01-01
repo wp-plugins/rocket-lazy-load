@@ -1,4 +1,4 @@
-=== Rocket Lazy Load ===
+=== Lazy Load Rocket ===
 Contributors: wp_media
 Tags: lazyload, lazy load, images, thumbnail, thumbnails, smiley, smilies, avatar, gravatar
 Requires at least: 2.8.0
