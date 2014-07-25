@@ -1,9 +1,9 @@
 === Rocket Lazy Load ===
 Contributors: juliobox, geekpress, wp_media
 Tags: lazyload, lazy load, images, thumbnail, thumbnails, smiley, smilies, avatar, gravatar
-Requires at least: 2.8.0
-Tested up to: 3.8
-Stable tag: 1.0
+Requires at least: 3.0
+Tested up to: 3.9.1
+Stable tag: 1.0.1.1
 
 The tiny Lazy Load script for WordPress without jQuery or others libraries.
 
@@ -24,23 +24,36 @@ This script is used by WP Rocket plugin cache : http://wp-rocket.me
 
 == Frequently Asked Questions ==
 
-= How can deactivate Lazy Load on some pages ? = 
+= How can i deactivate Lazy Load on some pages? = 
 
 You can use <em>do_rocket_lazyload</em> filter.
 
 Here, an example to put in functions.php files :
 `
 add_action( 'wp', 'deactivate_rocket_lazyload_on_single' );
-function deactivate_rocket_lazyload_on_single() 
-{
-	
-	if( is_single() )
+function deactivate_rocket_lazyload_on_single() {
+	if ( is_single() ) {
 		add_filter( 'do_rocket_lazyload', '__return_false' );
-	
+	}
 }
 `
 
+= How can i deactivate Lazy Load on some images? = 
+
+Simply add a 'data-no-lazy="1"' property in you IMG tag.
+
 == Changelog ==
 
+= 1.0.1.1 =
+* 25 jul. 2014
+* Fix stupid error with new regex in 1.0.1
+
+= 1.0.1 =
+* 16 jul. 2014
+* Fix bug: when a IMG tag or content (widget or post) contains the string "data-no-lazy", all IMG tags were ignored instead of one.
+* Security fix: The preg_replace() could lead to a XSS vuln, thanks to Alexander Concha
+* Code compliance
+
 = 1.0 =
+* 01 jan. 2014
 * Initial release.
