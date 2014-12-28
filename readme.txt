@@ -3,7 +3,7 @@ Contributors: juliobox, geekpress, wp_media
 Tags: lazyload, lazy load, images, thumbnail, thumbnails, smiley, smilies, avatar, gravatar
 Requires at least: 3.0
 Tested up to: 4.1
-Stable tag: 1.0.1.1
+Stable tag: 1.0.2
 
 The tiny Lazy Load script for WordPress without jQuery or others libraries.
 
@@ -43,6 +43,10 @@ function deactivate_rocket_lazyload_on_single() {
 Simply add a 'data-no-lazy="1"' property in you IMG tag.
 
 == Changelog ==
+
+= 1.0.2 =
+* 28 dec. 2014
+* Improvement: Add « rocket_lazyload_html » filter to manage the output that will be printed. 
 
 = 1.0.1.1 =
 * 25 jul. 2014
