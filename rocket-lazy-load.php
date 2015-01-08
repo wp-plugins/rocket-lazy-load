@@ -5,11 +5,11 @@ defined( 'ABSPATH' ) or	die( 'Cheatin\' uh?' );
 Plugin Name: Rocket Lazy Load
 Plugin URI: http://wordpress.org/plugins/rocket-lazy-load/
 Description: The tiny Lazy Load script for WordPress without jQuery or others libraries.
-Version: 1.0.2
+Version: 1.0.3
 Author: WP Media
 Author URI: http://wp-rocket.me
 
-Copyright 2013 WP Media
+Copyright 2015 WP Media
 
 	This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -75,7 +75,7 @@ function rocket_lazyload_images( $html ) {
  * @since 1.0.1
  */
 function __rocket_lazyload_replace_callback( $matches ) {
-	if ( strpos( $matches[1] . $matches[3], 'data-no-lazy=' ) === false && strpos( $matches[1] . $matches[3], 'data-lazy-original=' ) === false ) {
+	if ( strpos( $matches[1] . $matches[3], 'data-no-lazy=' ) === false && strpos( $matches[1] . $matches[3], 'data-lazy-original=' ) === false && strpos( $matches[2], '/wpcf7_captcha/' ) === false ) {
 		$html = sprintf( '<img%1$s src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAAAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" data-lazy-original=%2$s%3$s><noscript><img%1$s src=%2$s%3$s></noscript>',
 						$matches[1], $matches[2], $matches[3] );
 
