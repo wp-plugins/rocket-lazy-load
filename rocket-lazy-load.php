@@ -5,7 +5,7 @@ defined( 'ABSPATH' ) or	die( 'Cheatin\' uh?' );
 Plugin Name: Rocket Lazy Load
 Plugin URI: http://wordpress.org/plugins/rocket-lazy-load/
 Description: The tiny Lazy Load script for WordPress without jQuery or others libraries.
-Version: 1.0.3
+Version: 1.0.4
 Author: WP Media
 Author URI: http://wp-rocket.me
 
@@ -161,15 +161,22 @@ function rocket_convert_smilies( $text ) {
  * @since 1.0
  */
 function rocket_translate_smiley( $matches ) {
-
 	global $wpsmiliestrans;
 
-	if ( ! count( $matches ) ) {
+	if ( count( $matches ) == 0 )
 		return '';
-	}
 
 	$smiley = trim( reset( $matches ) );
 	$img = $wpsmiliestrans[ $smiley ];
+
+	$matches = array();
+	$ext = preg_match( '/\.([^.]+)$/', $img, $matches ) ? strtolower( $matches[1] ) : false;
+	$image_exts = array( 'jpg', 'jpeg', 'jpe', 'gif', 'png' );
+
+	// Don't convert smilies that aren't images - they're probably emoji.
+	if ( ! in_array( $ext, $image_exts ) ) {
+		return $img;
+	}
 
 	/**
 	 * Filter the Smiley image URL before it's used in the image element.
